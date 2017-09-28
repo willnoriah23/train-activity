@@ -1,0 +1,24 @@
+body {
+	background-color: #9caa91;
+	margin-left: 10%;
+	margin-right: 10%;
+}
+
+.jumbotron {
+	background-color: #9caa91;
+	text-align: center;
+	font-family: Georgia;
+	margin-bottom: -3%;
+}
+
+h1 {
+	font-weight: bold;
+}
+
+.table {
+	background-color: #fff;
+}
+
+.panel-heading {
+	background-color: #fff;	
+}
