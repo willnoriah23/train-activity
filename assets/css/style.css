@@ -7,18 +7,35 @@ body {
 .jumbotron {
 	background-color: #9caa91;
 	text-align: center;
-	font-family: Georgia;
 	margin-bottom: -3%;
 }
 
 h1 {
-	font-weight: bold;
+	font-family: 'Rye', cursive;
+	font-weight: bolder;
+	font-size: 120px;
 }
 
+tr {
+	text-align: center;
+}
+
+th {
+	text-align: center;
+}
 .table {
 	background-color: #fff;
 }
 
 .panel-heading {
 	background-color: #fff;	
+}
+
+.add-train {
+	margin-left: 10px;
+	margin-bottom: 10px;
+}
+
+thead {
+	text-align: center;
 }

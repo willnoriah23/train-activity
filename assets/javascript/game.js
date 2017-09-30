@@ -1,9 +1,3 @@
- // IGNORE THIS, FOR STUDYING PURPOSES
- //Fancy code I got help on, JS with HTML is the only way it would work. 
- //
-
- <script src="https://www.gstatic.com/firebasejs/4.4.0/firebase.js"></script>
-<script>
 var config = {
     apiKey: "AIzaSyDR7s1Wj7LKfZi1kZsEgrU0kr4DFsgDae8",
     authDomain: "original-project-bd8d1.firebaseapp.com",
@@ -14,8 +8,6 @@ var config = {
   };
 firebase.initializeApp(config);
 
-var firstRun = false;
-
 var database = firebase.database();
 
     // Initial Values
@@ -25,16 +17,8 @@ var database = firebase.database();
     var frequency = "";
     var nextArrival = "";
 
-    database.ref().on("child_changed", function(snapshot) {
 
-     firstRun = true; 
-      var data = "<tr class='rowStuff'><td>" + snapshot.val().trainName + "</td><td>" + snapshot.val().destination + "</td><td>" + snapshot.val().frequency + "</td><td>" + snapshot.val().nextArrival + "</td><td>" + snapshot.val().minutesAway + "</td></tr>";
-
-  $(".table").append(data);  
-
-    });
-
-    // Capture Button Click
+    // Capture button click
     $(".add-train").on("click", function(event) {
       event.preventDefault();
 
@@ -59,23 +43,18 @@ var database = firebase.database();
     });
 // Listening to the database and adds to table on initial load
 database.ref().on("child_added", function(snapshot) {
-console.log("child_added");
 
-if (!firstRun) {
-
-var data = "<tr class='rowStuff'><td>" + snapshot.val().trainName + "</td><td>" + snapshot.val().destination + "</td><td>" + snapshot.val().frequency + "</td><td>" + snapshot.val().nextArrival + "</td><td>" + snapshot.val().minutesAway + "</td></tr>";
+var data = "<tr class='rowStuff'><td>" + snapshot.val().trainName + "</td><td>" + snapshot.val().destination + "</td><td>" + snapshot.val().frequency + "</td><td>"+ snapshot.val().nextArrival + "</td><td>" + snapshot.val().minutesAway + "</td></tr>";
 
   $(".table").append(data);  
-  
-  }
-
 
   }, function(errorObject) {
 
       console.log("Errors handled: " + errorObject.code);
+
     });
 
-// Converts standard to miltary time 
+// Converts standard to military time 
 function addInputs(x, y) {
     var time = moment(x, "H:mm A");
     console.log(time.format("H:mm A"));
@@ -83,33 +62,7 @@ function addInputs(x, y) {
  // while is checking the difference of the current time and the arrival time on record to ensure it's the most up to date arrival time   
     while(moment().diff(time, "minutes") > 0) {
         time.add(+y, 'm');
-    }
+  }
     console.log(time.format("HH:mm"));
     return time;
-
   };
-
-  function updateNA() {
-    setInterval(function(){
-
-      $(".rowStuff").remove();
-
-      database.ref().once("value").then(function(snapshot){
-        snapshot.forEach(function(childSnapshot) {
-          var key = childSnapshot.key;
-          var childData = childSnapshot.val();
-          var holdData = childData.nextArrival;
-          var holdFreq = childData.frequency;
-
-          var time1 = addInputs(holdData,holdFreq);
-          var time2 = time1.diff(moment(), "minutes") + 1;
-
-          database.ref(key).update({nextArrival: time1.format("HH:mm A"), minutesAway: time2});
-        })
-      })
-  
-  },60000)
-
-  }
-
-updateNA();

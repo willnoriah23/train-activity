@@ -5,16 +5,12 @@
 	<title>Train Scheduler</title>
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-
-	<script src="https://www.gstatic.com/firebasejs/4.4.0/firebase.js"></script>
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">	
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Rye" rel="stylesheet">
 </head>
 <body>
 
-<!-- jQuery -->
-<script src="https://code.jquery.com/jquery.js"></script>
-
-<!-- Link to Moment.js should go here -->
 <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>	
 
 <div class="jumbotron">
@@ -37,56 +33,7 @@
         <th>Minutes Away</th> 
       </tr>
      </thead>
-     <tbody>
-      <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
-        <td>...</td>
-        <td>...</td>
-      </tr>
-      <tr>
-        <td>Mary</td>
-        <td>Moe</td>
-        <td>mary@example.com</td>
-        <td>...</td>
-        <td>...</td>
-      </tr>
-      <tr>
-        <td>July</td>
-        <td>Dooley</td>
-        <td>july@example.com</td>
-        <td>...</td>
-        <td>...</td>
-      </tr>
-       <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
-        <td>...</td>
-        <td>...</td>
-      </tr>
-       <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
-        <td>...</td>
-        <td>...</td>
-      </tr>
-       <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
-        <td>...</td>
-        <td>...</td>
-      </tr>
-       <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
-        <td>...</td>
-        <td>...</td>
-      </tr>
+     <tbody> 
     </tbody>
   
 	</table>
@@ -95,7 +42,7 @@
 
  <div class="panel panel-default">
   <div class="panel-heading">
-    <h3 class="panel-title">Current Employees</h3>
+    <h3 class="panel-title">Add Train</h3>
   </div>
   <div class="panel-body" id="addtrain">
 <form>
@@ -109,16 +56,22 @@
   </div>
   <div class="form-group">
     <label for="exampleInput3">First Train Time (HH:mm - Military Time)</label>
-    <input class="form-control" id="first-input" type="number">
+    <input class="form-control" id="first-input" type="time">
   </div>
    <div class="form-group">
     <label for="exampleInput4">Frequency (min)</label>
     <input class="form-control" id="freq-input" type="number">
   </div>
   </div>
-  <button type="submit" class="add-train"> Submit</button>
+  <button type="submit" class="add-train">Submit</button>
 </form>
 </div>
 
+<!-- <script src="assets/javascript/app.js"></script> -->
+<script src="https://www.gstatic.com/firebasejs/4.4.0/firebase.js"></script>
+<script src="assets/javascript/game.js">
+
+
+</script>
 </body>
 </html>
